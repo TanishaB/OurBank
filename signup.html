@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>Sign Up - OUR BANK</title>
+        <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <a href="index.html">HOME</a>  | 
+        <a href="aboutUs.html">ABOUT US</a>  |
+        <a href="services.html">SERVICES</a>  |
+        <a href="signin.html">NETBANKING</a>  |
+        <a href="contactUs.html">CONTACT US</a>  
+
+        <hr>
+
+        <header class="bankName"><h1>OUR BANK NETBANKING SIGN UP</h1></header>
+        <br><br>
+
+        <form action="signin.html">
+        <h2>Please Register</h2>
+        
+        
+            <label for="uname">Username</label><input class="field"  type="text" name="uname" placeholder="Your Name" required><br>
+            <label for="acno">Account No</label><input class="field"  type="number" required name="acno" placeholder="Account No"><br>
+            <label for="dob">Date of Birth</label> <input class="field" type="date" required name="dob"><br>      
+            <label for="pwd">Password</label><input class="field"  type="password" name="pwd" required minlength="8" maxlength="10" placeholder="Password"><br>
+            <label for="cpwd">Confirm</label><input  class="field" type="password" name="cpwd" required minlength="8" maxlength="10" placeholder="Confirm Password"><br>
+        
+            <br>
+            <input class="submitbtn" type="submit" value="REGISTER">
+            <input class="resetbtn" type="reset" value="CLEAR">
+        
+        </form>
+
+        <footer>&copy; Copyright 2022 Our Bank. All Rights Reserved</footer>
+    </body>
+</html>

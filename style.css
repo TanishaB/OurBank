@@ -1,0 +1,67 @@
+.bankName{
+    text-align: center;
+}
+#bankImg{
+    width: 20%;
+    height: 30%;
+}
+
+.intropara{
+    padding-top: 40px;
+    font-size: 15px;
+}
+
+.serviceslist, .bankName{
+    background:lightblue;
+    padding: 30px;
+    border-radius: 30px;
+}
+
+footer{
+    padding:70px;
+    background: black;
+    color: white;
+    margin-top: 30px;
+   
+}
+
+.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+  }
+
+form{
+    background: lightgreen;
+    padding: 30px;
+}
+.field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+.submitbtn{
+    width: 100px;
+    height: 30px;
+    background: green;
+    color: white;
+    border-radius: 10px;
+}
+
+.resetbtn{
+    width: 100px;
+    height: 30px;
+    background: red;
+    color: white;
+    border-radius: 10px;
+}
+
+.contact{
+    text-align: center;
+}
