@@ -47,7 +47,7 @@ form{
   }
   
 .submitbtn{
-    width: 100px;
+    width: 15%;
     height: 30px;
     background: green;
     color: white;
@@ -55,7 +55,7 @@ form{
 }
 
 .resetbtn{
-    width: 100px;
+    width: 15%;
     height: 30px;
     background: red;
     color: white;
@@ -64,4 +64,13 @@ form{
 
 .contact{
     text-align: center;
+}
+
+#loanservice{
+    background: green;
+    color: white;
+    height: 50px;
+    width: 20%;
+    border-radius: 30px;
+    font-size: 20px;
 }

@@ -5,6 +5,55 @@
         <title>Services - OUR BANK</title>
         <meta charset="UTF-8">
         <link href="style.css" rel="stylesheet">
+        <script>
+
+            function display(){
+                var p = parseInt(document.getElementById("amt").value);
+                var r = parseInt(document.getElementById("roi").value) / (12 * 100);
+                var n = parseInt(document.getElementById('yr').value) * 12;
+                
+                var result = p*r*(Math.pow(1+r, n))/(Math.pow(1+r,n)-1);
+                document.getElementById(id="emi").value = result;
+            }
+
+            function findROI(){
+                var type = document.getElementById('loantype').value;
+                switch(type){
+                    case "home":
+                        document.getElementById("roi").value = 7;
+                        break;
+                    
+                    case "car":
+                        document.getElementById("roi").value = 9;
+                        break;
+
+                    case "personal":
+                        document.getElementById("roi").value = 12;
+                        break;
+                }
+            }
+
+            function checkYrs(){
+                var type = document.getElementById('loantype').value;
+                var year = document.getElementById('yr').value;
+                switch(type){
+                    case "home":
+                        if(year<0 || year>25)
+                            alert("Home loan duration must be between 1 - 25 years")
+                            break;
+                    
+                    case "car":
+                        if(year<0 || year>7)
+                            alert("Car loan duration must be between 1 - 7 years")
+                            break;
+
+                    case "personal":
+                        if(year<0 || year>5)
+                            alert("Personal loan duration must be between 1 - 5 years")
+                            break;
+                }
+            }
+        </Script>
     </head>
 
     <body>
@@ -33,6 +82,27 @@
             <li>Funds remittance</li>
             <li>Debit cards</li>
         </ul>
+        <br><br>
+
+        <h3>Calculate EMI</h3>
+        <form id="emiform">		
+            <h3>
+                <label for="applicant"> Applicant : <input type="text" class="field" name="applicant" required><br>
+                
+                <label for="typeOfLoan">Loan Type : </label>
+                    <select id="loantype" class="field" id="typeOfLoan" onchange="findROI()">
+                        <option value="home">Home</option>
+                        <option value="car">Car</option>
+                        <option value="personal">Personal</option>
+                    </select><br>
+
+                <label for="amt"> Amount : <input type="number" class="field" id ="amt" name="amt" required><br>
+                <label for="roi"> ROI : <input type="number" class="field" name="roi" id="roi" value="7" disabled><br>
+                <label for="yrs"> Duration (Years) : <input type="number" name="yrs" class="field" id="yr" required onblur="checkYrs()"><br>
+                <label for="emi"> EMI : <input type="number" class="field" name="emi" id="emi"  disabled><br><br>
+                <input class="submitbtn" type="button" value="CALCULATE EMI" onclick="display()">
+            </h3>
+        </form>
 
         <footer>&copy; Copyright 2022 Our Bank. All Rights Reserved</footer>
         
