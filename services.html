@@ -7,6 +7,43 @@
         <link href="style.css" rel="stylesheet">
         <script>
 
+            var flag = true;
+            
+            function calculateEMI(){
+
+                if(flag){
+                    var str = `
+                        <form id="emiform">		
+                        <h3>
+                            <label for="applicant"> Applicant : <input type="text" class="field" name="applicant" required><br>
+                    
+                            <label for="typeOfLoan">Loan Type : </label>
+                                <select id="loantype" class="field" id="typeOfLoan" onchange="findROI()">
+                                    <option value="home">Home</option>
+                                    <option value="car">Car</option>
+                                    <option value="personal">Personal</option>
+                                </select><br>
+
+                            <label for="amt"> Amount : <input type="number" class="field" id ="amt" name="amt" required><br>
+                            <label for="roi"> ROI : <input type="number" class="field" name="roi" id="roi" value="7" disabled><br>
+                            <label for="yrs"> Duration (Years) : <input type="number" name="yrs" class="field" id="yr" required onblur="checkYrs()"><br>
+                            <label for="emi"> EMI : <input type="number" class="field" name="emi" id="emi"  disabled><br><br>
+                            <input class="submitbtn" type="button" value="CALCULATE" onclick="display()">
+                        </h3>
+                        </form>
+                    `
+                    document.getElementById("showForm").innerHTML = str;
+                    document.getElementById("calEMI").value = "Hide the form";
+                    document.getElementById("calEMI").style.backgroundColor = "red";
+                }
+                else{
+                    document.getElementById("showForm").innerHTML = "";
+                    document.getElementById("calEMI").value = "Calculate EMI";
+                    document.getElementById("calEMI").style.backgroundColor = "green";
+                }
+                flag = !flag;
+                
+            }
             function display(){
                 var p = parseInt(document.getElementById("amt").value);
                 var r = parseInt(document.getElementById("roi").value) / (12 * 100);
@@ -84,26 +121,9 @@
         </ul>
         <br><br>
 
-        <h3>Calculate EMI</h3>
-        <form id="emiform">		
-            <h3>
-                <label for="applicant"> Applicant : <input type="text" class="field" name="applicant" required><br>
-                
-                <label for="typeOfLoan">Loan Type : </label>
-                    <select id="loantype" class="field" id="typeOfLoan" onchange="findROI()">
-                        <option value="home">Home</option>
-                        <option value="car">Car</option>
-                        <option value="personal">Personal</option>
-                    </select><br>
-
-                <label for="amt"> Amount : <input type="number" class="field" id ="amt" name="amt" required><br>
-                <label for="roi"> ROI : <input type="number" class="field" name="roi" id="roi" value="7" disabled><br>
-                <label for="yrs"> Duration (Years) : <input type="number" name="yrs" class="field" id="yr" required onblur="checkYrs()"><br>
-                <label for="emi"> EMI : <input type="number" class="field" name="emi" id="emi"  disabled><br><br>
-                <input class="submitbtn" type="button" value="CALCULATE" onclick="display()">
-            </h3>
-        </form>
-
+        <input type = "button" class="submitbtn" id ="calEMI" value="Calculate EMI" onclick="calculateEMI()">
+        <div id = "showForm"></div>
+        
         <footer>&copy; Copyright 2022 Our Bank. All Rights Reserved</footer>
         
     </body>
